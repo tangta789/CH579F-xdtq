@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>CH57x</TargetName>
+      <TargetName>CH57F-xdtq</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>DEBUG</Define>
               <Undefine></Undefine>
-              <IncludePath>..\SRC\CMSIS\Include;..\SRC\Startup;..\SRC\StdPeriphDriver\inc;.</IncludePath>
+              <IncludePath>..\..\os\ble\HAL\include;..\..\os\core\CMSIS\Include;..\..\os\core\StdPeriphDriver\inc;..\..\os\common;.</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -380,13 +380,8 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>user</GroupName>
+          <GroupName>app</GroupName>
           <Files>
-            <File>
-              <FileName>Main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Main.c</FilePath>
-            </File>
             <File>
               <FileName>kxtj9.c</FileName>
               <FileType>1</FileType>
@@ -398,157 +393,234 @@
               <FilePath>.\kxtj9.h</FilePath>
             </File>
             <File>
-              <FileName>gpio_to_i2c.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\gpio_to_i2c.h</FilePath>
+              <FileName>Main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Main.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>os-common</GroupName>
+          <Files>
             <File>
               <FileName>gpio_to_i2c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\gpio_to_i2c.c</FilePath>
+              <FilePath>..\..\os\common\gpio_to_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_to_i2c.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\common\gpio_to_i2c.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>peripheral</GroupName>
-          <Files>
-            <File>
-              <FileName>CH57x_adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_clk.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_clk.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_lcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_pwm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_pwm.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_pwr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_pwr.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_spi0.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_spi0.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_sys.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_sys.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_timer0.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_timer0.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_uart1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_uart1.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_timer1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_timer1.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_timer2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_timer2.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_timer3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_timer3.c</FilePath>
-            </File>
-            <File>
-              <FileName>CH57x_int.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SRC\StdPeriphDriver\CH57x_int.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>10</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>2</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <uGnu>2</uGnu>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>startup</GroupName>
+          <GroupName>os-startup</GroupName>
           <Files>
             <File>
               <FileName>startup_ARMCM0.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\SRC\Startup\startup_ARMCM0.s</FilePath>
+              <FilePath>..\..\os\core\Startup\startup_ARMCM0.s</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>os-core</GroupName>
+          <Files>
+            <File>
+              <FileName>CH57x_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_clk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_clk.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_int.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_pwr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_spi0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_spi0.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_spi1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_spi1.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_timer0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_timer0.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_timer1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_timer1.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_timer2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_timer2.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_timer3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_timer3.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_uart0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_uart0.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_uart1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_uart1.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_uart2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_uart2.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_uart3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_uart3.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_usbdev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_usbdev.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_usbhostBase.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_usbhostBase.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_usbhostClass.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\CH57x_usbhostClass.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>os-core-inc</GroupName>
+          <Files>
+            <File>
+              <FileName>CH57x_adc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_adc.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_clk.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_clk.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_common.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_common.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_flash.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_flash.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_lcd.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_lcd.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_pwm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_pwm.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_pwr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_pwr.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_spi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_spi.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_sys.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_sys.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_uart.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_usbdev.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_usbdev.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH57x_usbhost.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH57x_usbhost.h</FilePath>
+            </File>
+            <File>
+              <FileName>CH579SFR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\os\core\StdPeriphDriver\inc\CH579SFR.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>os-ble</GroupName>
         </Group>
       </Groups>
     </Target>
